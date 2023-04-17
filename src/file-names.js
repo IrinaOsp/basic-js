@@ -19,10 +19,10 @@ function renameFiles(names) {
   let num = {}
   let res = names.map((el) => {
     if (el in num) {
-      let name = `${el}(${num[name]})`
+      let resName = `${el}(${num[el]})`
       num[el]++;
-      num[name] = 1;
-      return name
+      num[resName] = 1;
+      return resName
     } else {
       num[el] = 1
       return el
