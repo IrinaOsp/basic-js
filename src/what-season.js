@@ -15,9 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason(a) {
   if (!a) {
     return 'Unable to determine the time of year!'
-  } else if (Object.prototype.toString.call(a) !== '[object Date]') {
-    return 'Invalid date!'
-  } else {
+  } else if (Object.getOwnPropertyNames(a).length === 0) {
     let month = a.getMonth()
     if (a.getMonth() === 'underfined') {
       return 'Unable to determine the time of year!'
@@ -26,7 +24,10 @@ function getSeason(a) {
     else if (month < 5) {return 'spring'}
     else if (month < 8) {return 'summer'}
     else {return 'autumn'}
+  } else {
+    throw new Error('Invalid date!')
   }
+
 }
 
 module.exports = {
