@@ -24,7 +24,7 @@ class VigenereCipheringMachine {
     if (direction === false) {
       this.direction = reverse
     } else {
-      this.direction = direct
+      this.direction = direct;
     }
   }
   encrypt(mesage, key) {
