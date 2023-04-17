@@ -10,25 +10,30 @@ const chainMaker = {
     return this.chains.length
   },
   addLink(value) {
-    if (this.chains.length === 0) {
+    if (typeof value !== 'underfined') {
       this.chains.push(`( ${value} )`)
-      return this.chains
     } else {
-      return this.chains.push(`~~( ${value} )`)
+      this.chains.push('(  )')
     }
+      return this
   },
   removeLink(position) {
-    if (position < 0 || position > this.chains.length) {
+    if (position <= 0 || position > this.chains.length || position%1 !== 0 || typeof position !== 'number') {
+      this.chains = []
       throw new Error("You can't remove incorrect link!")
     } else {
-      this.chains[position-1] = ''
+      this.chains = this.chains.slice(0, position-1).concat(this.chains.slice(position))
     }
+    return this
   },
   reverseChain() {
-    
+    this.chains.reverse()
+    return this
   },
   finishChain() {
-    return this.chains.join('')
+    let res = this.chains.join('~~')
+    this.chains = []
+    return res
   }
 };
 
