@@ -16,21 +16,22 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function renameFiles(names) {
-  let arr = [...names]
-  console.log(arr)
-names.map((el, index) => {
-    arr[index] = ''
-  console.log(arr)
-  console.log(arr.indexOf(el))
-    if (arr.indexOf(el)>=0) {
-        names[arr.indexOf(el)] = `${el}(1)`
+  let num = {}
+  let res = names.map((el) => {
+    if (el in num) {
+      let name = `${el}(${num[name]})`
+      num[el]++;
+      num[name] = 1;
+      return name
+    } else {
+      num[el] = 1
+      return el
     }
-  arr = [...names]
-
-  })
-console.log('names')
-  return names
+    })
+  return res
 }
+
+
 
 module.exports = {
   renameFiles
