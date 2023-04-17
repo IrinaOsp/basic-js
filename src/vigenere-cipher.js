@@ -20,13 +20,13 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
-  constructor(direction) {
-    if (direction === false) {
-      this.direction = reverse
-    } else {
-      this.direction = direct;
-    }
-  }
+  // constructor(direction) {
+  //   if (direction === false) {
+  //     this.direction = reverse
+  //   } else {
+  //     this.direction = direct;
+  //   }
+  // }
   encrypt(mesage, key) {
     if (!message || !key) {
       throw new Error('Incorrect arguments!')
